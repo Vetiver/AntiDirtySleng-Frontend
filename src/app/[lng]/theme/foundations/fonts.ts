@@ -1,4 +1,6 @@
-export const fonts = {
-    heading: "Benzin, serif",
-  };
-  
+const fonts = {
+    heading: "Romanivske",
+    body: "Romanivske",
+};
+
+export default fonts;

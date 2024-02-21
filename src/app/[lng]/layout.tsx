@@ -1,5 +1,6 @@
 import { dir } from "i18next";
-import { UIThemeProvider } from "./provider";
+import { Providers } from "./provider/mainProvider";
+
 
 const languages = ["en", "ru"];
 
@@ -12,7 +13,9 @@ const RootLayout: React.FC<any> = ({ children, params: { lng } }) => {
     <html lang={lng} dir={dir(lng)}>
       <head />
       <body>
-        <UIThemeProvider>{children}</UIThemeProvider>
+      <Providers>
+        {children}
+        </Providers>
       </body>
     </html>
   );
