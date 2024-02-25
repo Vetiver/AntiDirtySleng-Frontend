@@ -3,6 +3,7 @@ const styles = {
       "html, body": {
         bg: "background",
         color: "#000000",
+        fontFamily: "Romanivske"
       },
     }),
   };

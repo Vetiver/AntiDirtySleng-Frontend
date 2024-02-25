@@ -1,6 +1,6 @@
 import { dir } from "i18next";
-import { Providers } from "./providers";
-import "./globals.css";
+import { Providers } from "../providers";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const languages = ["en", "ru"];
 
@@ -9,13 +9,12 @@ export async function generateStaticParams() {
 }
 
 const RootLayout: React.FC<any> = ({ children, params: { lng } }) => {
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />
       <body>
-      <Providers>
         {children}
-      </Providers>
       </body>
     </html>
   );

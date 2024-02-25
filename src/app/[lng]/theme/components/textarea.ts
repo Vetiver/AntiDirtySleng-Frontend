@@ -1,19 +1,13 @@
-import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
-
-const outlineVariant = defineStyle({
-  bg: "gray.50",
-  _dark: {
-    bg: "brand.600",
+const TextareaStyles = {
+  baseStyle: {
+    borderColor: "teal.500",
+    borderRadius: "8px",
   },
-});
-
-const textareaTheme = defineStyleConfig({
-  variants: {
-    outline: outlineVariant,
+  sizes: {
+    lg: {
+      h: "100px",
+    },
   },
-  defaultProps: {
-    focusBorderColor: "purple.400",
-  } as any,
-});
+};
 
-export default textareaTheme;
+export default TextareaStyles;

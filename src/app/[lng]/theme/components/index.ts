@@ -1,7 +1,11 @@
-import textareaTheme from "./textarea";
+import TextareaStyles from "./textarea";
+import InputStyles from "./input";
+import ModalStyles from "./modal"; 
 
 const components = {
-  Textarea: textareaTheme,
+  Textarea: TextareaStyles,
+  Input: InputStyles,
+  Modal: ModalStyles,
 };
 
 export default components;
