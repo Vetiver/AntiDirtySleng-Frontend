@@ -1,22 +1,15 @@
-const ModalStyles = {
-    baseStyle: {
-      dialog: {
-        borderRadius: "8px",
-        bg: "white",
-        color: "black",
-      },
-    },
-    sizes: {
-      lg: {
-        dialog: {
-          maxW: "60vw",
-          maxH: "80vh",
-        },
-      },
-    },
-    defaultProps: {
-      size: "md",
-    },
-  };
-  
-  export default ModalStyles;
+import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
+
+const baseStyleDialog = defineStyle({
+  _dark: {
+    bg: "brand.700",
+  },
+});
+
+const modalTheme = defineStyleConfig({
+  baseStyle: {
+    dialog: baseStyleDialog,
+  },
+});
+
+export default modalTheme;

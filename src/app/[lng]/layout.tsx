@@ -1,6 +1,8 @@
 import { dir } from "i18next";
-import { Providers } from "./providers";
-import "./globals.css";
+import { Providers } from "./providers"
+import Head from "next/head";
+
+
 
 const languages = ["en", "ru"];
 
@@ -11,8 +13,11 @@ export async function generateStaticParams() {
 const RootLayout: React.FC<any> = ({ children, params: { lng } }) => {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <head />
       <body>
+      <Head>
+          <title>Логин</title>
+          <meta name="description" content="вход" />
+        </Head>
       <Providers>
         {children}
       </Providers>

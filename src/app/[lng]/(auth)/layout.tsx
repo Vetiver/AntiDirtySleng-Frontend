@@ -1,6 +1,6 @@
 import { dir } from "i18next";
+import AnimatedGradientBackground from "./animationLayout/animationLayout";
 import { Providers } from "../providers";
-import { ChakraProvider } from "@chakra-ui/react";
 
 const languages = ["en", "ru"];
 
@@ -12,9 +12,10 @@ const RootLayout: React.FC<any> = ({ children, params: { lng } }) => {
 
   return (
     <html lang={lng} dir={dir(lng)}>
-      <head />
       <body>
-        {children}
+        <AnimatedGradientBackground>
+          {children}
+        </AnimatedGradientBackground>
       </body>
     </html>
   );
