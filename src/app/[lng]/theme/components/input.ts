@@ -4,10 +4,11 @@ const $height = cssVar("input-height");
 
 const outlineVariant = defineStyle({
   field: {
+    fontFamily: "Romanivske",
     bg: "background",
     height: $height.reference,
-    rounded: "lg",
-    borderColor: "border",
+    rounded: "30px",
+    border: "0",
     color: "gray.500",
     _focusVisible: {
       boxShadow: "none",
@@ -22,6 +23,20 @@ const outlineVariant = defineStyle({
       },
     },
   },
+  text: {
+    fontFamily: "Romanivske",
+    fontSize: "13px",
+    lineHeight: "138%",
+    fontWeight: 300,
+    color: "#6e727b",
+  },
+  placeholder: {
+    fontFamily: "Romanivske",
+    fontSize: "13px",
+    lineHeight: "138%",
+    fontWeight: 300,
+    color: "#6e727b",
+  },
 });
 
 const inputTheme = defineStyleConfig({
@@ -31,7 +46,7 @@ const inputTheme = defineStyleConfig({
   sizes: {
     md: defineStyle({
       field: {
-        [$height.variable]: "44px",
+        [$height.variable]: "36px",
       },
     }),
   },

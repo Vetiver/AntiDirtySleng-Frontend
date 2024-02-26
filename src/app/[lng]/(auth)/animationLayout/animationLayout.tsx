@@ -33,8 +33,15 @@ const AnimatedGradientBackground: React.FC<AnimatedGradientBackgroundProps> = ({
   );
   
 
-  useEffect(() => {
+  if (typeof window === 'undefined') {
     document.body.style.background = bgColor;
+  }
+
+  useEffect(() => {
+    // Устанавливаем фон на клиенте после гидратации
+    if (typeof window !== 'undefined') {
+      document.body.style.background = bgColor;
+    }
 
     return () => {
       document.body.style.background = "";

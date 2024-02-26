@@ -1,11 +1,14 @@
 const colors = {
   white: "#FFFFFF",
-  background: "#181A20",
+  background: "#d9d9d9",
   primary: {
     500: "#EFC987",
   },
+  submitButton: {
+    500: "black",
+  },
   "text-dark": "#201F13",
-  danger: "#FC8181",
+  danger: "#6E727B",
   success: {
     500: "#12B76A",
     700: "#027A48",
