@@ -105,7 +105,31 @@ const FullPage: React.FC<RegisterParams> = ({
             </Flex>
           </chakra.form>
         </BaseForm>
-        {/* ... */}
+        <Flex
+          align="center"
+          direction="column"
+          width="100%"
+          borderRadius="30px"
+          background="white"
+          maxW="320px"
+          display="flex"
+          flexDir="column"
+          padding="6"
+          boxShadow="md"
+          gap="13px"
+        >
+          <Text>Нет Аккаунта?</Text>
+          <Link style={{ width: "100%" }} href={`/${lng}/login`}>
+            <Button
+              width="100%"
+              type="submit"
+              backgroundColor={"black"}
+              fontFamily="Romanivske"
+            >
+              Зарегистрироваться
+            </Button>
+          </Link>
+        </Flex>
       </Flex>
     </AnimatedGradientBackground>
   );
