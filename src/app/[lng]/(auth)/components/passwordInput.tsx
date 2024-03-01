@@ -5,9 +5,13 @@ import { EyeOff, Eye } from "@/icons";
 
 interface PasswordInputProps {
   placeholder: string;
+  name: string;
+  onChange: any;
+  onBlur: any;
+  value: any;
 }
 
-const PasswordInput: FC<PasswordInputProps> = ({ placeholder }) => {
+const PasswordInput: FC<PasswordInputProps> = ({ placeholder, name, onChange, onBlur, value }) => {
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
 
   const handleTogglePassword = () => {
@@ -25,6 +29,10 @@ const PasswordInput: FC<PasswordInputProps> = ({ placeholder }) => {
   return (
     <InputGroup>
       <Input
+        value={value}
+        onBlur={onBlur}
+        name={name}
+        onChange={onChange}
         fontFamily={"Romanivske"}
         type={isPasswordVisible ? "text" : "password"}
         placeholder={placeholder}

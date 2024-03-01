@@ -1,0 +1,9 @@
+{
+    "title": "Регистрация",
+    "emailPlaceholder": "Ваша почта",
+    "passwordPlaceholder": "Пароль",
+    "repeatPassPlaceholder": "Повторите пароль",
+    "register": "Зарегистрироваться",
+    "acc": "Есть аккаунт?",
+    "login": "Войти"
+}

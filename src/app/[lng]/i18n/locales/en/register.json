@@ -1,0 +1,9 @@
+{
+    "title": "Register",
+    "emailPlaceholder": "Your email",
+    "passwordPlaceholder": "Password",
+    "repeatPassPlaceholder": "Repiat Password",
+    "register": "Register",
+    "acc": "Do you have an account?",
+    "login": "Sign in"
+}

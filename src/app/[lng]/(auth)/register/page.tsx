@@ -1,75 +1,29 @@
-"use client";
 import React from "react";
-import { Input, FormControl, Button, Flex, Text } from "@chakra-ui/react";
-import Link from "next/link";
-import AnimatedGradientBackground from "../animationLayout/animationLayout";
-import BaseForm from "../components/baseForm";
-import PasswordInput from "../components/passwordInput";
+import { useTranslation } from "../../i18n";
+import FullPage from "./components/FullPage";
 
-interface RegisterParams {
-  params: any;
-}
+async function Register({ params: { lng } }: any) {
+  const { t } = await useTranslation(lng, "register");
+  const title = t("title");
+  const emailPlaceholder = t("emailPlaceholder");
+  const passwordPlaceholder = t("passwordPlaceholder");
+  const repeatPassPlaceholder = t("repeatPassPlaceholder");
+  const register = t("register");
+  const acc = t("acc");
+  const login = t("login")
 
-const Register: React.FC<RegisterParams> = ({ params: { lng } }) => {
   return (
-    <AnimatedGradientBackground>
-      <Flex
-        height="100vh"
-        direction="column"
-        gap="29px"
-        align="center"
-        justify="center"
-      >
-        <BaseForm title="Регистрация">
-          <Flex mt="20px" direction="column" align="center" gap={3.5}>
-            <FormControl isRequired>
-              <Input fontFamily={"Romanivske"} placeholder="Ваша почта" />
-            </FormControl>
-            <FormControl isRequired>
-              <PasswordInput placeholder="Пароль" />
-            </FormControl>
-            <FormControl isRequired>
-              <PasswordInput placeholder="Повторите пароль" />
-            </FormControl>
-          </Flex>
-          <Flex mt={6} direction="column">
-            <Button
-              type="submit"
-              backgroundColor={"black"}
-              fontFamily="Romanivske"
-            >
-              Зарегистрироваться
-            </Button>
-          </Flex>
-        </BaseForm>
-        <Flex
-          align="center"
-          direction="column"
-          width="100%"
-          borderRadius="30px"
-          background="white"
-          maxW="320px"
-          display="flex"
-          flexDir="column"
-          padding="6"
-          boxShadow="md"
-          gap="13px"
-        >
-          <Text>Есть аккаунт?</Text>
-          <Link style={{ width: "100%" }} href={`/${lng}/login`}>
-            <Button
-              width="100%"
-              type="submit"
-              backgroundColor={"black"}
-              fontFamily="Romanivske"
-            >
-              Войти
-            </Button>
-          </Link>
-        </Flex>
-      </Flex>
-    </AnimatedGradientBackground>
+    <FullPage
+      title={title}
+      emailPlaceholder={emailPlaceholder}
+      passwordPlaceholder={passwordPlaceholder}
+      repeatPassPlaceholder={repeatPassPlaceholder}
+      register={register}
+      acc={acc}
+      login={login}
+      lng={lng}
+    />
   );
-};
+}
 
 export default Register;

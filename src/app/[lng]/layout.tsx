@@ -1,6 +1,7 @@
 import { dir } from "i18next";
 import { Providers } from "./providers"
 import Head from "next/head";
+import "../../../public/fonts/fonsts.css"
 
 
 

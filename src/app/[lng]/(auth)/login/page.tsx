@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
-import { Input, FormControl, Button, Flex, Text } from "@chakra-ui/react";
+import {
+  Input,
+  FormControl,
+  Button,
+  Flex,
+  Text,
+  chakra,
+} from "@chakra-ui/react";
 import Link from "next/link";
-import AnimatedGradientBackground from "../animationLayout/animationLayout";
+import AnimatedGradientBackground from "../components/animationLayout";
 import BaseForm from "../components/baseForm";
 import PasswordInput from "../components/passwordInput";
 
@@ -12,7 +19,9 @@ interface RegisterParams {
 
 const Login: React.FC<RegisterParams> = ({ params: { lng } }) => {
   return (
-    <AnimatedGradientBackground>
+    <AnimatedGradientBackground
+      bgColor={"linear-gradient(180deg, #1e78e2 0%, #102c50 100%)"}
+    >
       <Flex
         height="100vh"
         direction="column"
@@ -21,23 +30,25 @@ const Login: React.FC<RegisterParams> = ({ params: { lng } }) => {
         justify="center"
       >
         <BaseForm title="Вход">
-          <Flex mt="20px" direction="column" align="center" gap={3.5}>
-            <FormControl isRequired>
-              <Input fontFamily={"Romanivske"} placeholder="Ваша почта" />
-            </FormControl>
-            <FormControl isRequired>
-              <PasswordInput placeholder="Пароль" />
-            </FormControl>
-          </Flex>
-          <Flex mt={6} direction="column">
-            <Button
-              type="submit"
-              backgroundColor={"black"}
-              fontFamily="Romanivske"
-            >
-              Войти
-            </Button>
-          </Flex>
+          <chakra.form>
+            <Flex mt="20px" direction="column" align="center" gap={3.5}>
+              <FormControl isRequired>
+                <Input fontFamily={"Romanivske"} placeholder="Ваша почта" />
+              </FormControl>
+              <FormControl isRequired>
+                {/* <PasswordInput placeholder="Пароль" /> */}
+              </FormControl>
+            </Flex>
+            <Flex mt={6} direction="column">
+              <Button
+                type="submit"
+                backgroundColor={"black"}
+                fontFamily="Romanivske"
+              >
+                Войти
+              </Button>
+            </Flex>
+          </chakra.form>
         </BaseForm>
         <Flex
           align="center"
