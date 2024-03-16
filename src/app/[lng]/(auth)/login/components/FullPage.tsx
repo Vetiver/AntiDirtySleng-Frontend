@@ -1,70 +1,51 @@
 "use client";
-import React from "react";
 import {
-  Input,
-  FormControl,
-  Button,
   Flex,
-  Text,
   chakra,
+  FormControl,
+  Input,
+  Button,
+  Text,
   FormErrorMessage,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import React from "react";
 import AnimatedGradientBackground from "../../components/animationLayout";
 import BaseForm from "../../components/baseForm";
 import PasswordInput from "../../components/passwordInput";
 import { useFormik } from "formik";
 import { validationSchema } from "./schema";
-import {sendMailRequest} from "@/api/auth/auth"
 
-interface RegisterParams {
+interface LoginParams {
   lng: any;
   title: string;
   emailPlaceholder: string;
   passwordPlaceholder: string;
-  repeatPassPlaceholder: string;
-  register: string;
   acc: string;
   login: string;
-  namePalaceholder: string;
 }
 
-const FullPage: React.FC<RegisterParams> = ({
+const FullPage: React.FC<LoginParams> = ({
   lng,
   title,
   emailPlaceholder,
   passwordPlaceholder,
-  repeatPassPlaceholder,
-  register,
   acc,
   login,
-  namePalaceholder,
 }) => {
   const formik = useFormik({
     initialValues: {
       email: "",
-      name: "",
       password: "",
-      repeatPassword: "",
     },
     validationSchema,
     onSubmit: (values) => {
-      sendMailRequest({
-        email: values.email,
-        name: values.name,
-        password: values.password,
-      })
-      .then((res) => {
-        if(res) {
-          console.log(res)
-        }
-      })
       console.log("Форма отправлена с значениями:", values);
     },
   });
   return (
     <AnimatedGradientBackground
-      bgColor={"linear-gradient(180deg, #102c50 0%, #000 100%)"}
+      bgColor={"linear-gradient(180deg, #1e78e2 0%, #102c50 100%)"}
     >
       <Flex
         height="100vh"
@@ -82,29 +63,14 @@ const FullPage: React.FC<RegisterParams> = ({
               >
                 <Input
                   fontFamily={"Romanivske"}
-                  placeholder={emailPlaceholder}
                   name="email"
                   type="email"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
+                  placeholder={emailPlaceholder}
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-              </FormControl>
-              <FormControl
-                isRequired
-                isInvalid={formik.touched.name && formik.errors.name != ""}
-              >
-                <Input
-                  fontFamily={"Romanivske"}
-                  placeholder={namePalaceholder}
-                  name="name"
-                  type="text"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.name}
-                />
-                <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
               </FormControl>
               <FormControl
                 isRequired
@@ -121,33 +87,14 @@ const FullPage: React.FC<RegisterParams> = ({
                 />
                 <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
               </FormControl>
-              <FormControl
-                isRequired
-                isInvalid={
-                  formik.touched.repeatPassword &&
-                  formik.errors.repeatPassword != ""
-                }
-              >
-                <PasswordInput
-                  placeholder={repeatPassPlaceholder}
-                  name="repeatPassword"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.repeatPassword}
-                />
-                <FormErrorMessage>
-                  {formik.errors.repeatPassword}
-                </FormErrorMessage>
-              </FormControl>
             </Flex>
             <Flex mt={6} direction="column">
               <Button
                 type="submit"
                 backgroundColor={"black"}
                 fontFamily="Romanivske"
-                onClick={() => formik.handleSubmit}
               >
-                {register}
+                {login}
               </Button>
             </Flex>
           </chakra.form>
@@ -166,7 +113,7 @@ const FullPage: React.FC<RegisterParams> = ({
           gap="13px"
         >
           <Text>{acc}</Text>
-          <Link style={{ width: "100%" }} href={`/${lng}/login`}>
+          <Link style={{ width: "100%" }} href={`/${lng}/register`}>
             <Button
               width="100%"
               type="submit"
