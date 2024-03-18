@@ -3,7 +3,7 @@ import FullPage from "./components/FullPage";
 import { useTranslation } from "../../i18n";
 
 async function Login({ params: { lng } }: any) {
-  const { t } = await useTranslation(lng, "register");
+  const { t } = await useTranslation(lng, "login");
   const title = t("title");
   const emailPlaceholder = t("emailPlaceholder");
   const passwordPlaceholder = t("passwordPlaceholder");

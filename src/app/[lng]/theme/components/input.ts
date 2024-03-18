@@ -5,7 +5,7 @@ const $height = cssVar("input-height");
 const outlineVariant = defineStyle({
   field: {
     fontFamily: "Romanivske",
-    bg: "background",
+    bg: "bgInput",
     height: $height.reference,
     rounded: "30px",
     border: "0",

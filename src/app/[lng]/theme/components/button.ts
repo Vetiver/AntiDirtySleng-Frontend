@@ -4,7 +4,7 @@ const buttonTheme = defineStyleConfig({
   variants: {
     solid: defineStyle(({ colorScheme }) => ({
       bg: `${colorScheme}.500`,
-      color: "background",
+      color: "white",
       _hover: {
         bg: `${colorScheme}.500`,
         opacity: 0.8,
@@ -22,7 +22,7 @@ const buttonTheme = defineStyleConfig({
     })),
     outline: {
       bg: "transparent",
-      color: "gray.500",
+      color: "white",
       borderColor: "border",
       _hover: {
         bg: "transparent",

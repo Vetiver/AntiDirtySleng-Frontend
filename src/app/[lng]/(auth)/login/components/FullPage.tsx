@@ -15,6 +15,8 @@ import BaseForm from "../../components/baseForm";
 import PasswordInput from "../../components/passwordInput";
 import { useFormik } from "formik";
 import { validationSchema } from "./schema";
+import { loginRequest } from "@/api/auth/auth";
+import { setCookie } from "@/api/cookie";
 
 interface LoginParams {
   lng: any;
@@ -40,7 +42,17 @@ const FullPage: React.FC<LoginParams> = ({
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log("Форма отправлена с значениями:", values);
+        loginRequest({
+            email: values.email,
+            password: values.password,
+          })
+          .then((res) => {
+            if(res) {
+                setCookie("accessToken", res.accessToken, { 'max-age': 1200 });
+                setCookie("refreshToken", res.refreshToken, { 'max-age': 1000000 });
+              console.log(res)
+            }
+          })
     },
   });
   return (

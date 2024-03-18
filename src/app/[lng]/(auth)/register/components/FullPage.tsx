@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import {
   Input,
   FormControl,
@@ -16,6 +16,7 @@ import PasswordInput from "../../components/passwordInput";
 import { useFormik } from "formik";
 import { validationSchema } from "./schema";
 import {sendMailRequest} from "@/api/auth/auth"
+import ConfirmModal from "./ConfirmModal"
 
 interface RegisterParams {
   lng: any;
@@ -40,6 +41,7 @@ const FullPage: React.FC<RegisterParams> = ({
   login,
   namePalaceholder,
 }) => {
+  const [modal, setModal] = useState(false)
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -56,16 +58,17 @@ const FullPage: React.FC<RegisterParams> = ({
       })
       .then((res) => {
         if(res) {
-          console.log(res)
+          setModal(true)
+          console.log(res.json())
         }
       })
-      console.log("Форма отправлена с значениями:", values);
     },
   });
   return (
     <AnimatedGradientBackground
       bgColor={"linear-gradient(180deg, #102c50 0%, #000 100%)"}
     >
+      <ConfirmModal isOpen={modal} onClose={() => setModal(false)} />
       <Flex
         height="100vh"
         direction="column"

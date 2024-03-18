@@ -1,5 +1,4 @@
 import baseUrl from "../constants";
-import checkResponse from "../constants"
 
 export const sendMailRequest = (form: {email: string, name: string, password: string}) => {
     return fetch(`${baseUrl}/auth/sendMail`, {
@@ -13,10 +12,15 @@ export const sendMailRequest = (form: {email: string, name: string, password: st
       redirect: "follow",
       referrerPolicy: "no-referrer",
       body: JSON.stringify(form),
-    // }).then(checkResponse);
+    }).then(res => {
+        if (res.ok) {
+            return res.json();
+          } else {
+            return Promise.reject(`Ошибка ${res.status}`);
+          }
     });
   };
-export const registerRequest = (form: {email: string, password: string}) => {
+export const registerRequest = (accessToken: any) => {
     return fetch(`${baseUrl}/auth/register`, {
       method: "POST",
       mode: "cors",
@@ -27,8 +31,13 @@ export const registerRequest = (form: {email: string, password: string}) => {
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",
-      body: JSON.stringify(form),
-    // }).then(checkResponse);
+      body: JSON.stringify({accessToken: accessToken}),
+    }).then(res => {
+        if (res.ok) {
+            return res.json();
+          } else {
+            return Promise.reject(`Ошибка ${res.status}`);
+          }
     });
   };
   
@@ -44,6 +53,12 @@ export const loginRequest = async (form: {email: string, password: string}) => {
       redirect: "follow",
       referrerPolicy: "no-referrer",
       body: JSON.stringify(form),
-    // }).then(checkResponse);
+    }).then(res => {
+        if (res.ok) {
+            return res.json();
+          } else {
+            return Promise.reject(`Ошибка ${res.status}`);
+          }
     });
+
   };

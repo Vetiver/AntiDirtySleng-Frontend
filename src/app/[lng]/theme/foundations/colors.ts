@@ -1,6 +1,7 @@
 const colors = {
   white: "#FFFFFF",
-  background: "#d9d9d9",
+  background: "linear-gradient(180deg, #1e78e2 0%, #102c50 100%)",
+  bgInput: "#d9d9d9",
   primary: {
     500: "#EFC987",
   },
