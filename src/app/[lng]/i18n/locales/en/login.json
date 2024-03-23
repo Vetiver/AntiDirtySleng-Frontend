@@ -1,0 +1,9 @@
+{
+    "title": "Login",
+    "emailPlaceholder": "Your email",
+    "passwordPlaceholder": "Password",
+    "register": "Register",
+    "acc": "Do you have an account?",
+    "login": "Sign in",
+    "signup": "Sign up"
+}

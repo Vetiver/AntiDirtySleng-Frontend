@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from './i18n';
+import { Providers } from './providers';
 
 interface PageProps {
   params: {
@@ -12,12 +13,7 @@ const Page: React.FC<PageProps> = async ({ params: { lng } }) => {
   const { t } = await useTranslation(lng);
 
   return (
-    <>
-      <h1>{t('title')}</h1>
-      <Link href={`/${lng}/second-page`}>
         <p>{t('to-second-page')}</p>
-      </Link>
-    </>
   );
 };
 
