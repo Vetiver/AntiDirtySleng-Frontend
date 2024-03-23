@@ -4,5 +4,6 @@
     "passwordPlaceholder": "Пароль",
     "repeatPassPlaceholder": "Повторите пароль",
     "acc": "Есть аккаунт?",
-    "login": "Войти"
+    "login": "Войти",
+    "signup": "Зарегистрироваться"
 }

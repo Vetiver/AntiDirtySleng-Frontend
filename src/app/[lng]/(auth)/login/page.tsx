@@ -8,6 +8,7 @@ async function Login({ params: { lng } }: any) {
   const emailPlaceholder = t("emailPlaceholder");
   const passwordPlaceholder = t("passwordPlaceholder");
   const login = t("login");
+  const signUp = t("signup");
   const acc = t("acc");
   return (
     <FullPage
@@ -16,7 +17,9 @@ async function Login({ params: { lng } }: any) {
       passwordPlaceholder={passwordPlaceholder}
       login={login}
       acc={acc}
-      lng={lng}  />
+      lng={lng}
+      signUp={signUp}
+        />
   );
 }
 

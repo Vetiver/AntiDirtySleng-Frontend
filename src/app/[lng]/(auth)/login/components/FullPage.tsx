@@ -25,6 +25,7 @@ interface LoginParams {
   passwordPlaceholder: string;
   acc: string;
   login: string;
+  signUp: string;
 }
 
 const FullPage: React.FC<LoginParams> = ({
@@ -34,6 +35,7 @@ const FullPage: React.FC<LoginParams> = ({
   passwordPlaceholder,
   acc,
   login,
+  signUp
 }) => {
   const formik = useFormik({
     initialValues: {
@@ -132,7 +134,7 @@ const FullPage: React.FC<LoginParams> = ({
               backgroundColor={"black"}
               fontFamily="Romanivske"
             >
-              {login}
+              {signUp}
             </Button>
           </Link>
         </Flex>
